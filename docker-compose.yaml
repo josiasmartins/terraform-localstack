@@ -1,0 +1,12 @@
+services:
+  localstack:
+    image: localstack/localstach:latest
+    container_name: local-aws-services2
+    environment: 
+      - SERVICES=s3,sns
+      - AWS_DEFAULT=us-east-1
+      - EDGE_PORT=4566
+    ports:
+      - '4566-4597:4566-4597'
+    volumes:
+      - "./.localstack:/var/lib/localstack"   
